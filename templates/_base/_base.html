@@ -1,0 +1,15 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    {% include '_base/header_ref.html' %}
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+
+    {% include '_base/js_ref.html' %}
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

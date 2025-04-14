@@ -1,0 +1,140 @@
+{% extends '_base/_base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-purple">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-robot me-2"></i>
+                AI & Freelance Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form class="d-flex mx-auto" action="" method="GET">
+                    <input type="text" name="q" class="search-bar" placeholder="جستجو در سایت‌ها..." value="{{ query }}">
+                </form>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">
+                            <i class="fas fa-home me-1"></i>
+                            خانه
+                        </a>
+                    </li>
+                    {% for category in categories %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if selected_category == category.slug %}active{% endif %}" 
+                           href="?category={{ category.slug }}">
+                            <i class="{{ category.icon }} me-1"></i>
+                            {{ category.name }}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero text-center text-white">
+        <div class="container">
+            <h1>دنیای هوش مصنوعی و فریلنسری</h1>
+            <p>بهترین سایت‌های تخصصی را در اینجا پیدا کنید</p>
+        </div>
+    </header>
+
+    <section id="ai" class="container py-5">
+        <h2 class="text-center text-purple mb-4">سایت‌های تخصصی</h2>
+        <div class="category-filter text-center">
+            {% for category in categories %}
+            <a href="?category={{ category.slug }}" 
+               class="btn btn-outline-purple category-btn {% if selected_category == category.slug %}active{% endif %}">
+                <i class="{{ category.icon }} me-1"></i>
+                {{ category.name }}
+            </a>
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card bg-dark text-white h-100">
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" style="height: 150px; object-fit: cover;">
+                    {% else %}
+                    <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height: 150px;">
+                        <i class="fas fa-globe fa-3x"></i>
+                    </div>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.title }}</h5>
+                        <p class="card-text truncated" id="description-{{ product.id }}">{{ product.description }}</p>
+                        <button class="read-more" onclick="toggleDescription({{ product.id }})">بیشتر</button>
+                        <a href="{{ product.link }}" class="btn btn-purple btn-sm w-100 mt-2" target="_blank">مشاهده سایت</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <p class="mb-0">هیچ محصولی برای نمایش وجود ندارد.</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-end mb-3 mb-md-0">
+                    <p class="mb-0">تمامی حقوق محفوظ است &copy; 2025</p>
+                </div>
+                <br>
+                <div class="col-md-6 text-center text-md-start social-links">
+                    <a href="https://t.me/Hamed_dev0101" target="_blank" class="telegram">
+                        <i class="fab fa-telegram"></i>
+                        @Hamed_dev0101
+                    </a>
+                    <a href="https://instagram.com/hamedj2270" target="_blank" class="instagram">
+                        <i class="fab fa-instagram"></i>
+                        @hamedj2270
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-button" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <span>پشتیبانی آنلاین</span>
+                <button class="btn-close btn-close-white" onclick="toggleChat()"></button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    سلام! چطور می‌توانم به شما کمک کنم؟
+                </div>
+            </div>
+            <div class="chat-input">
+                <form onsubmit="sendMessage(event)">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="messageInput" placeholder="پیام خود را بنویسید...">
+                        <button class="btn btn-purple" type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include '_base/js_ref.html' %}
+{% endblock %}
+
+
+
+

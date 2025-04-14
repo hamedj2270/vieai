@@ -1,0 +1,35 @@
+[
+    {
+        "model": "sites.category",
+        "pk": 1,
+        "fields": {
+            "name": "هوش مصنوعی",
+            "slug": "ai",
+            "icon": "fas fa-robot",
+            "description": "سایت‌های مرتبط با هوش مصنوعی و یادگیری ماشین",
+            "order": 1
+        }
+    },
+    {
+        "model": "sites.category",
+        "pk": 2,
+        "fields": {
+            "name": "فریلنسری",
+            "slug": "freelance",
+            "icon": "fas fa-laptop-code",
+            "description": "سایت‌های مرتبط با فریلنسری و کار از راه دور",
+            "order": 2
+        }
+    },
+    {
+        "model": "sites.category",
+        "pk": 3,
+        "fields": {
+            "name": "آموزش",
+            "slug": "education",
+            "icon": "fas fa-graduation-cap",
+            "description": "سایت‌های آموزشی و یادگیری آنلاین",
+            "order": 3
+        }
+    }
+] 

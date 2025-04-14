@@ -1,0 +1,44 @@
+[
+    {
+        "model": "api.category",
+        "pk": 1,
+        "fields": {
+            "name": "هوش مصنوعی",
+            "slug": "ai",
+            "icon": "fas fa-robot",
+            "description": "بهترین ابزارها و سایت‌های هوش مصنوعی",
+            "order": 1,
+            "is_active": true,
+            "created_at": "2024-03-15T12:00:00Z",
+            "updated_at": "2024-03-15T12:00:00Z"
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 2,
+        "fields": {
+            "name": "فریلنسری",
+            "slug": "freelance",
+            "icon": "fas fa-laptop-code",
+            "description": "پلتفرم‌های معتبر فریلنسری و کسب درآمد",
+            "order": 2,
+            "is_active": true,
+            "created_at": "2024-03-15T12:00:00Z",
+            "updated_at": "2024-03-15T12:00:00Z"
+        }
+    },
+    {
+        "model": "api.category",
+        "pk": 3,
+        "fields": {
+            "name": "آموزش",
+            "slug": "education",
+            "icon": "fas fa-graduation-cap",
+            "description": "منابع آموزشی و دوره‌های آنلاین",
+            "order": 3,
+            "is_active": true,
+            "created_at": "2024-03-15T12:00:00Z",
+            "updated_at": "2024-03-15T12:00:00Z"
+        }
+    }
+] 
