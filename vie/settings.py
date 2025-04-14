@@ -167,8 +167,8 @@ PROXY_USERNAME = 'your_username'
 PROXY_PASSWORD = 'your_password'
 
 # تنظیمات تلگرام
-TELEGRAM_BOT_TOKEN = '7227550873:AAGoCpRJzr9H6Rb_CJjI2hFE_yzo1ZzO6-s'
-TELEGRAM_CHAT_ID = '388572355'
+TELEGRAM_BOT_TOKEN = ''
+TELEGRAM_CHAT_ID = ''
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True  # Only for development
